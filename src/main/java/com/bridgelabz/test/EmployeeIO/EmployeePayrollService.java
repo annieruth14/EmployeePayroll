@@ -38,8 +38,21 @@ public class EmployeePayrollService {
 	}
 
 	public void writeData(IOService ioService) {
-		if(ioService.equals(EmployeePayrollService.IOService.CONSOLE_IO))
+		if (ioService.equals(EmployeePayrollService.IOService.CONSOLE_IO))
 			System.out.println("\nWriting Employee Payroll Roaster to Console\n" + employeePayrollList);
-		else if(ioService.equals(IOService.FILE_IO))
-			new EmployeePayrollFileIOService().writeData(employeePayrollList);}
+		else if (ioService.equals(IOService.FILE_IO))
+			new EmployeePayrollFileIOService().writeData(employeePayrollList);
+	}
+
+	public void printData(IOService ioService) {
+		if (ioService.equals(IOService.FILE_IO))
+			new EmployeePayrollFileIOService().printData();
+	}
+
+	public long countEntries(IOService ioService) {
+		if(ioService.equals(IOService.FILE_IO))
+			return new EmployeePayrollFileIOService().countEntries();
+		return 0;
+	}
+
 }
