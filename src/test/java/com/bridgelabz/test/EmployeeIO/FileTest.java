@@ -10,7 +10,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class FileTest {
-	private String HOME = System.getProperty("user.home");
+	private String HOME = System.getProperty("user.home"); 
 	private static String PLAY = "TempPlayGround";
 
 	@Test
@@ -20,7 +20,7 @@ public class FileTest {
 		Assert.assertTrue(Files.exists(homePath));
 
 		// Delete File and check file not exist
-		Path playPath = Paths.get(HOME + "/" + PLAY);
+		Path playPath = Paths.get(HOME + "/Desktop/" + PLAY);
 		if (Files.exists(playPath))
 			FileUtils.deleteFiles(playPath.toFile());
 		Assert.assertTrue(Files.notExists(playPath));

@@ -23,7 +23,7 @@ public class EmployeePayrollService {
 		ArrayList<EmployeePayroll> employeePayrollList = new ArrayList<>();
 		EmployeePayrollService employeePayrollService = new EmployeePayrollService(employeePayrollList);
 		employeePayrollService.readData();
-		employeePayrollService.writeData();
+		employeePayrollService.writeData(IOService.CONSOLE_IO);
 	}
 
 	private void readData() {
@@ -37,7 +37,9 @@ public class EmployeePayrollService {
 		employeePayrollList.add(new EmployeePayroll(id, name, salary));
 	}
 
-	public void writeData() {
-		System.out.println("\nWriting Employee Payroll Roaster to Console\n" + employeePayrollList);
-	}
+	public void writeData(IOService ioService) {
+		if(ioService.equals(EmployeePayrollService.IOService.CONSOLE_IO))
+			System.out.println("\nWriting Employee Payroll Roaster to Console\n" + employeePayrollList);
+		else if(ioService.equals(IOService.FILE_IO))
+			new EmployeePayrollFileIOService().writeData(employeePayrollList);}
 }
