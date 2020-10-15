@@ -37,6 +37,6 @@ public class EmployeePayroll {
 	
 	@Override
 	public String toString() {
-		return "Id= " + getId() + "   Name= " + getName() + "   Salary= " + getSalary();
+		return "Id=" + getId() + ", Name=" + getName() + ", Salary=" + getSalary();
 	}
 }
